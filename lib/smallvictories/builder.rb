@@ -14,7 +14,7 @@ module SmallVictories
       setup_directory folder_path
       setup_directory folder_source_path
       setup_config
-      setup_guardfile
+      # setup_guardfile
       setup_stylesheet
       setup_javascript
       setup_html
@@ -63,9 +63,9 @@ module SmallVictories
       File.open(File.join(folder_path, CONFIG_FILE), 'w') {|f| f.write d.to_yaml }
     end
 
-    def setup_guardfile
-      create_src_file('Guardfile', File.join(folder_path, GUARD_FILE))
-    end
+    # def setup_guardfile
+    #   create_src_file('Guardfile', File.join(folder_path, GUARD_FILE))
+    # end
 
     def setup_stylesheet
       create_src_file('stylesheet.scss', File.join(folder_source_path, config.stylesheets.first))

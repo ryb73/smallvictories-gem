@@ -13,7 +13,6 @@ def help
     inline                          Inline CSS in your HTML files
     minify                          Minify files for production
     server                          Run Small Victories local HTML development server
-    watch                           Watch for changes and compile files
     help                            Prints this help document
     version                         Prints the small victories gem version
 
@@ -74,14 +73,6 @@ def server
   server.run
 end
 
-def watch
-  compile
-  config = SmallVictories::Configuration.new
-  compiler = SmallVictories::Compiler.new(config: config)
-  watcher = SmallVictories::Watcher.new(compiler: compiler)
-  watcher.watch
-end
-
 case ARGV[0]
 when '-v', '--version', 'version'
   puts SmallVictories::VERSION
@@ -99,8 +90,6 @@ when 'minify'
   minify
 when 'server'
   server
-when 'watch'
-  watch
 else
   puts "`#{ARGV[0]}` command not found.\n"
   puts help
